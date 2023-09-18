@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown Example</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Get Selected Options</h1>
+    <form method="POST">
+        <label for="industry">Select an industry:</label>
+        <select id="industry" name="industry">
+            {% for option in industries %}
+                <option value="{{ option }}" {% if option == selected_industry %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="category">Select a category:</label>
+        <select id="category" name="category">
+            {% for option in categories %}
+                <option value="{{ option }}" {% if option == selected_category %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="three">Select option three:</label>
+        <select id="three" name="three">
+            {% for option in c3_options %}
+                <option value="{{ option }}" {% if option == selected_c3 %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="four">Select option four:</label>
+        <select id="four" name="four">
+            {% for option in c4_options %}
+                <option value="{{ option }}" {% if option == selected_c4 %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="five">Select option five:</label>
+        <select id="five" name="five">
+            {% for option in c5_options %}
+                <option value="{{ option }}" {% if option == selected_c5 %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if result %}
+        <p>Result: {{ result }}</p>
+    {% endif %}
+</body>
+</html>

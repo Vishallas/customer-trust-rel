@@ -1,0 +1,4 @@
+Flask
+python-dotenv
+joblib
+scikit-learn 
